@@ -1,0 +1,397 @@
+:root {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f9fafb;
+  --text-primary: #1f2937;
+  --text-secondary: #6b7280;
+  --border-color: #e5e7eb;
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.dark {
+  --bg-primary: #1f2937;
+  --bg-secondary: #111827;
+  --text-primary: #f9fafb;
+  --text-secondary: #d1d5db;
+  --border-color: #374151;
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+}
+
+.App {
+  min-height: 100vh;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.sign-in-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 3rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.sign-in-card {
+  background: var(--bg-primary);
+  border-radius: 1.5rem;
+  padding: 4rem 5rem;
+  box-shadow: var(--shadow-lg);
+  max-width: 700px;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.logo-main {
+  margin: 0 auto;
+}
+
+.header-logo {
+  margin-right: 0.5rem;
+}
+
+.app-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  text-align: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.app-subtitle {
+  color: var(--text-secondary);
+  text-align: center;
+  margin-bottom: 3rem;
+  font-size: 1.25rem;
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 3rem;
+  background: var(--bg-primary);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow);
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.menu-toggle {
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  cursor: pointer;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  transition: background 0.2s;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-toggle:hover {
+  background: var(--bg-secondary);
+}
+
+.menu-toggle svg {
+  width: 28px;
+  height: 28px;
+}
+
+.app-header .header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.app-header .app-title {
+  font-size: 2.5rem;
+  margin: 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.theme-toggle {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  cursor: pointer;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+}
+
+.theme-toggle:hover {
+  background: var(--border-color);
+  transform: scale(1.05);
+}
+
+.theme-toggle svg {
+  width: 28px;
+  height: 28px;
+}
+
+/* Make UserButton (Profile) bigger */
+.user-button-wrapper {
+  transform: scale(1.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-button-wrapper :global([data-clerk-element="userButton"]) {
+  transform: scale(1);
+}
+
+.user-button-wrapper :global(.cl-userButtonTrigger) {
+  width: 60px !important;
+  height: 60px !important;
+  min-width: 60px !important;
+  min-height: 60px !important;
+}
+
+.user-button-wrapper :global(.cl-userButtonBox) {
+  width: 60px !important;
+  height: 60px !important;
+  min-width: 60px !important;
+  min-height: 60px !important;
+}
+
+.user-button-wrapper :global(.cl-avatarBox) {
+  width: 60px !important;
+  height: 60px !important;
+  min-width: 60px !important;
+  min-height: 60px !important;
+}
+
+.user-button-wrapper :global(.cl-avatar) {
+  width: 60px !important;
+  height: 60px !important;
+  min-width: 60px !important;
+  min-height: 60px !important;
+}
+
+/* Make Clerk Modal (Account Dialog) text bigger */
+:global(.cl-modalContent) {
+  font-size: 1.25rem !important;
+}
+
+:global(.cl-modalContent h1),
+:global(.cl-modalContent h2),
+:global(.cl-modalContent h3) {
+  font-size: 2rem !important;
+  font-weight: 700 !important;
+}
+
+:global(.cl-modalContent .cl-headerTitle) {
+  font-size: 2.5rem !important;
+  font-weight: 800 !important;
+}
+
+:global(.cl-modalContent .cl-headerSubtitle) {
+  font-size: 1.5rem !important;
+}
+
+:global(.cl-modalContent p),
+:global(.cl-modalContent span),
+:global(.cl-modalContent div) {
+  font-size: 1.25rem !important;
+  line-height: 1.6 !important;
+}
+
+:global(.cl-modalContent label) {
+  font-size: 1.375rem !important;
+  font-weight: 600 !important;
+}
+
+:global(.cl-modalContent input),
+:global(.cl-modalContent input[type="email"]),
+:global(.cl-modalContent input[type="text"]) {
+  font-size: 1.25rem !important;
+  padding: 1rem 1.25rem !important;
+}
+
+:global(.cl-modalContent button) {
+  font-size: 1.25rem !important;
+  padding: 1rem 1.5rem !important;
+  font-weight: 600 !important;
+}
+
+:global(.cl-modalContent a) {
+  font-size: 1.25rem !important;
+}
+
+:global(.cl-modalContent .cl-profileSection) {
+  font-size: 1.25rem !important;
+}
+
+:global(.cl-modalContent .cl-profileSectionHeader) {
+  font-size: 1.5rem !important;
+  font-weight: 700 !important;
+}
+
+:global(.cl-modalContent .cl-identityPreview) {
+  font-size: 1.375rem !important;
+}
+
+:global(.cl-modalContent .cl-identityPreviewText) {
+  font-size: 1.375rem !important;
+}
+
+:global(.cl-modalContent .cl-badge) {
+  font-size: 1.125rem !important;
+  padding: 0.5rem 1rem !important;
+}
+
+:global(.cl-modalContent .cl-navButton) {
+  font-size: 1.25rem !important;
+  padding: 1rem 1.5rem !important;
+}
+
+:global(.cl-modalContent .cl-navButtonText) {
+  font-size: 1.25rem !important;
+}
+
+:global(.cl-modalContent .cl-formFieldLabel) {
+  font-size: 1.375rem !important;
+  font-weight: 600 !important;
+}
+
+:global(.cl-modalContent .cl-formFieldInput) {
+  font-size: 1.25rem !important;
+  padding: 1rem 1.25rem !important;
+}
+
+:global(.cl-modalContent .cl-button) {
+  font-size: 1.25rem !important;
+  padding: 1rem 2rem !important;
+  font-weight: 600 !important;
+}
+
+:global(.cl-modalContent .cl-buttonPrimary) {
+  font-size: 1.25rem !important;
+  padding: 1rem 2rem !important;
+}
+
+:global(.cl-modalContent .cl-buttonText) {
+  font-size: 1.25rem !important;
+}
+
+:global(.cl-modalContent .cl-accordionTrigger) {
+  font-size: 1.25rem !important;
+  padding: 1rem !important;
+}
+
+:global(.cl-modalContent .cl-accordionContent) {
+  font-size: 1.25rem !important;
+}
+
+:global(.cl-modalContent .cl-text) {
+  font-size: 1.25rem !important;
+}
+
+:global(.cl-modalContent .cl-descriptionText) {
+  font-size: 1.125rem !important;
+}
+
+/* Increase icon sizes in modal */
+:global(.cl-modalContent svg) {
+  width: 24px !important;
+  height: 24px !important;
+}
+
+/* Make the modal itself bigger */
+:global(.cl-modal) {
+  max-width: 900px !important;
+}
+
+:global(.cl-modalContent) {
+  padding: 2.5rem !important;
+}
+
+.main-nav {
+  background: var(--bg-primary);
+  border-bottom: 1px solid var(--border-color);
+  padding: 1rem 3rem;
+  display: flex;
+  gap: 1rem;
+  box-shadow: var(--shadow);
+  flex-wrap: wrap;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  background: transparent;
+  border: none;
+  border-radius: 0.5rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 1.25rem;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.nav-item svg {
+  width: 24px;
+  height: 24px;
+}
+
+.nav-item:hover {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.nav-item.active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.main-content {
+  min-height: calc(100vh - 200px);
+  padding: 2rem;
+  max-width: 1600px;
+  margin: 0 auto;
+  width: 100%;
+}
+
